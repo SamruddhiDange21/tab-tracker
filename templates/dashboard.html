@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>TabTracker</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/insights">Insights</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="page-title">Activity</h1>
+
+    <div class="card">
+        <table>
+            <tr>
+                <th>URL</th>
+                <th>Reason</th>
+                <th>Category</th>
+                <th>Time</th>
+                <th></th>
+            </tr>
+
+            {% for row in data %}
+            <tr>
+                <td>{{ row["url"] }}</td>
+                <td>{{ row["reason"] }}</td>
+                <td>{{ row["category"] }}</td>
+                <td>{{ row["time"] }}</td>
+                <td><a class="delete" href="/delete/{{ row['id'] }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insights</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>TabTracker</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="page-title">Insights</h1>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Most Visited</h3>
+            <p class="big">{{ top_site["url"] if top_site else "No data" }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Category Usage</h3>
+            {% for c in categories %}
+                <p>{{ c["category"] }} → {{ c["count"] }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
